@@ -4,9 +4,13 @@
 Frame that can be expanded or collapsed to show additional information.
 Intended to contain additional list frames.
 
+## `NexusEvent NexusCollapsableListFrame.Clicked`
+Event that is invoked when the collapsable frame
+is clicked.
+
 ## `NexusEvent NexusCollapsableListFrame.DoubleClicked`
 Event that is invoked when the collapsable frame
-is clicked double-clicked.
+is double-clicked.
 
 ## `NexusEvent NexusCollapsableListFrame.DelayClicked`
 Event that is invoked when the collapsable frame

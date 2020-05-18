@@ -71,6 +71,8 @@ function NexusCollapsableListFrame:__new()
 	self.DoubleClicked = NexusEventCreator:CreateEvent()
 	self:__SetChangedOverride("DelayClicked",function() end)
 	self.DelayClicked = NexusEventCreator:CreateEvent()
+	self:__SetChangedOverride("Clicked",function() end)
+	self.Clicked = NexusEventCreator:CreateEvent()
 	
 	--Create the constraint.
 	local BoundingSizeConstraint = NexusBoundingSizeConstraint.new(CollapsableContainer)
@@ -258,6 +260,7 @@ function NexusCollapsableListFrame:__new()
 	Container.InputBegan:Connect(function(Input)
 		if DB and self.Selectable and not self.Disabled and Input.UserInputType == Enum.UserInputType.MouseButton1 then
 			DB = false
+			self.Clicked:Fire()
 			if self.Selected then
 				--Handle double clicking and delayed clicking.
 				if LastClickTime ~= nil then
